@@ -1,0 +1,11 @@
+@startuml
+BannerAd -> AdController: void loadAd(AdRequest)
+AdController -> AdPicker: AdSdk picker(Callback)
+AdPicker -> AdFactory: AdAdapter getAd()
+
+AdFactory --> AdPicker: AdAdapter
+AdPicker --> AdController: callback
+AdController --> BannerAd: callback
+
+BannerAd -> BannerAd: void showAd(View)
+@enduml
